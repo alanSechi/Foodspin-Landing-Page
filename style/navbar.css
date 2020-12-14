@@ -1,0 +1,55 @@
+/* Navbar elements */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+.navbar-logo {
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-logo a img {
+    margin-right: 0.625rem;
+}
+
+.navbar-logo h1 {
+    font-weight: 500;
+    font-size: 1.125rem;
+    margin-top: -0.3125rem;
+}
+
+.navbar-links {
+    align-self: center;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin-left: -15.625rem;
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.navbar-links li {
+    margin: 0 1.875rem;
+}
+
+.navbar-chart {
+    position: relative;
+    align-self: flex-end;
+    top: -2.1rem;
+}
+
+.chart:hover {
+    content: url("../images/svg/shopper_hover.svg");
+}
+
+.navbar-chart-dot {
+    width: 0.4375rem;
+    height: 0.4375rem;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    bottom: 0.3125rem;
+    left: 80%;
+    background: #ff922c;
+}
