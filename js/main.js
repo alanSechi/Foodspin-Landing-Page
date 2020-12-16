@@ -1,14 +1,16 @@
-/*
+/*==========================================
 
+DEFINITION OF VARIABLES AND OBJECTS
 
-DEFINITION OF THE VARIABLES AND THE OBJECTS
-
-*/
+=============================================*/
 
 const price = document.querySelector(".dish__description h2");
 const name = document.querySelector(".dish__description h3");
 const description = document.querySelector(".dish__description p");
-const orderNow = document.querySelector(".dish__description button");
+const orderButton = document.querySelector(".dish__description button");
+const dishes = document.querySelectorAll(".spinner__meal");
+const turnRight = document.querySelector(".arrow__right");
+const turnLeft = document.querySelector(".arrow__left");
 
 const firstDish = {
     name: "Green Goddess Chicken Salad",
@@ -35,10 +37,8 @@ const thirdDish = {
 };
 
 
-
-
-//array index
-let contentSelector = 0;
+// starting point of the content
+let contentCounter = 0;
 
 //boolean for colors control
 let isOrange = true;
@@ -46,36 +46,34 @@ let isOrange = true;
 //define variables for spinning
 let spin = 0.0;
 
+//define the center for the elements on the spinner
+const center = {
+    x: parseFloat(getComputedStyle(dishes[0]).left), //take the distance from the left
+    y: parseFloat(getComputedStyle(dishes[0]).top), ////take the distance from the top
+};
 
-/*
+// define the variables needed for positioning
+let newAngle = 0.0;
+let newX = 0.0;
+let newY = 0.0;
+
+
+/*=================================
 
 START OF FUNCTIONS
 
-*/
+===================================*/
 
 //button right On click
-const turnRight = document.querySelector(".arrow__right");
+
 turnRight.addEventListener("click", (event) => {
-    contentSelector++;
-    if (contentSelector == dishes.length) contentSelector = 0;
+    contentCounter++;
+    if (contentCounter == dishes.length) contentCounter = 0;
 
     spinRight();
-    changeContent(contentSelector);
-    animateContent();
-    changeColors();
-});
-
-//button left on click
-const turnLeft = document.querySelector(".arrow__left");
-turnLeft.addEventListener("click", (event) => {
-    if (contentSelector != 0) contentSelector--;
-    else {
-        contentSelector = dishes.length - 1;
-    }
-    spinLeft();
-    animateContent();
-    changeContent(contentSelector);
-    changeColors();
+    changeContent(contentCounter);
+    contentAnimation();
+    orangeGreenSwitch();
 });
 
 function spinRight() {
@@ -85,6 +83,19 @@ function spinRight() {
     wheel.style.transform = `translate(-50%, -50%) rotate(${spin}deg)`;
 }
 
+//button left on click
+
+turnLeft.addEventListener("click", (event) => {
+    if (contentCounter != 0) contentCounter--;
+    else {
+        contentCounter = dishes.length - 1;
+    }
+    spinLeft();
+    contentAnimation();
+    changeContent(contentCounter);
+    orangeGreenSwitch();
+});
+
 function spinLeft() {
     const wheel = document.querySelector(".spinner__wheel");
     let slice = 45;
@@ -92,59 +103,116 @@ function spinLeft() {
     wheel.style.transform = `translate(-50%, -50%) rotate(${spin}deg)`;
 }
 
-function changeColors() {
+
+// colors switcher background, price and buttons
+
+function orangeGreenSwitch() {
     const container = document.querySelector(".spinner__background");
     if (isOrange == true) {
         container.classList.add("bg--green");
         turnRight.classList.add("btn--green");
         turnLeft.classList.add("btn--green");
         price.style.color = "#54bf29";
-        orderNow.classList.add("btn--green");
+        orderButton.classList.add("btn--green");
         isOrange = false;
     } else {
         container.classList.remove("bg--green");
         turnRight.classList.remove("btn--green");
         turnLeft.classList.remove("btn--green");
         price.style.color = "#ff922c";
-        orderNow.classList.remove("btn--green");
+        orderButton.classList.remove("btn--green");
         isOrange = true;
     }
+
 }
 
-function changeContent(contentSelector) {
+//content changer each case is a different dish  
 
-    switch (contentSelector) {
+function changeContent(contentCounter) {
+
+    switch (contentCounter) {
+
         case 0:
+            price.innerHTML = firstDish.price;
+            name.innerHTML = firstDish.name;
+            description.innerHTML = firstDish.description;
+            mealImg.src = firstDish.smallImage;
+            mealImg.alt = firstDish.name;
+            isOrange = false;
+            break;
+
+        case 1:
+            price.innerHTML = secondDish.price;
+            name.innerHTML = secondDish.name;
+            description.innerHTML = secondDish.description;
+            mealImg.src = secondDish.smallImage;
+            mealImg.alt = secondDish.name;
+            isOrange = true;
+            break;
+
+        case 2:
+            price.innerHTML = thirdDish.price;
+            name.innerHTML = thirdDish.name;
+            description.innerHTML = thirdDish.description;
+            mealImg.src = thirdDish.smallImage;
+            mealImg.alt = thirdDish.name;
+            isOrange = false;
+            break;
+
         case 3:
             price.innerHTML = firstDish.price;
             name.innerHTML = firstDish.name;
             description.innerHTML = firstDish.description;
             mealImg.src = firstDish.smallImage;
             mealImg.alt = firstDish.name;
+            isOrange = false;
             break;
-        case 1:
+
         case 4:
-        case 6:
             price.innerHTML = secondDish.price;
             name.innerHTML = secondDish.name;
             description.innerHTML = secondDish.description;
             mealImg.src = secondDish.smallImage;
             mealImg.alt = secondDish.name;
+            isOrange = true;
             break;
-        case 2:
+
         case 5:
-        case 7:
-        case 8:
             price.innerHTML = thirdDish.price;
             name.innerHTML = thirdDish.name;
             description.innerHTML = thirdDish.description;
             mealImg.src = thirdDish.smallImage;
             mealImg.alt = thirdDish.name;
+            isOrange = false;
             break;
+
+        case 6:
+            price.innerHTML = firstDish.price;
+            name.innerHTML = firstDish.name;
+            description.innerHTML = firstDish.description;
+            mealImg.src = firstDish.smallImage;
+            mealImg.alt = firstDish.name;
+            isOrange = false;
+            break;
+
+        case 7:
+            price.innerHTML = secondDish.price;
+            name.innerHTML = secondDish.name;
+            description.innerHTML = secondDish.description;
+            mealImg.src = secondDish.smallImage;
+            mealImg.alt = secondDish.name;
+            isOrange = true;
+            break;
+
+
+
     }
+
 }
 
-function animateContent() {
+//animation of the content
+
+function contentAnimation() {
     //Animation keyframes
     let dishAnimate = [
         { transform: "rotate(-45deg)" },
@@ -164,25 +232,14 @@ function animateContent() {
         { transform: "scale(1, 1)" },
     ];
 
-    mealImg.animate(dishAnimate, 500);
-    price.animate(textAnimate, 500);
-    name.animate(textAnimate, 500);
-    description.animate(textAnimate, 500);
-    orderNow.animate(textAnimate, 500);
+    mealImg.animate(dishAnimate, 600);
+    price.animate(textAnimate, 600);
+    name.animate(textAnimate, 600);
+    description.animate(textAnimate, 600);
+    orderButton.animate(textAnimate, 600);
 }
 
-const dishes = document.querySelectorAll(".spinner__meal");
-
-//define the center for the elements on the spinner
-const center = {
-    x: parseFloat(getComputedStyle(dishes[0]).left), //take the distance from the left
-    y: parseFloat(getComputedStyle(dishes[0]).top), ////take the distance from the top
-};
-
-// define the variables needed for positioning
-let newAngle = 0.0;
-let newX = 0.0;
-let newY = 0.0;
+//positioning of the images on the wheel using trigonometry
 
 dishes.forEach((dish, i) => {
     const angle = Math.PI / 4.0; //angle of 45 deg on the wheel
@@ -199,6 +256,10 @@ dishes.forEach((dish, i) => {
     dishesOnTheWheel(dish, i);
 });
 
+
+
+//Function that puts the images on the wheel
+
 function dishesOnTheWheel(dish, i) {
     const images = [
         "url('assets/images/webp/dishOne.webp')",
@@ -207,19 +268,37 @@ function dishesOnTheWheel(dish, i) {
     ];
     switch (i) {
         case 0:
+            dish.style.backgroundImage = images[1];
+            break;
+
+        case 1:
+            dish.style.backgroundImage = images[2];
+            break;
+
+        case 2:
+            dish.style.backgroundImage = images[0];
+            break;
+
         case 3:
+            dish.style.backgroundImage = images[1];
+            break;
+
+        case 4:
+            dish.style.backgroundImage = images[2];
+            break;
+
+        case 5:
+            dish.style.backgroundImage = images[0];
+            break;
+
         case 6:
             dish.style.backgroundImage = images[1];
             break;
-        case 1:
-        case 4:
+
         case 7:
             dish.style.backgroundImage = images[2];
             break;
-        case 2:
-        case 5:
-        case 8:
-            dish.style.backgroundImage = images[0];
-            break;
+
+
     }
 }
