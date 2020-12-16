@@ -1,3 +1,10 @@
+/*
+
+
+DEFINITION OF THE VARIABLES AND THE OBJECTS
+
+*/
+
 const price = document.querySelector(".dish__description h2");
 const name = document.querySelector(".dish__description h3");
 const description = document.querySelector(".dish__description p");
@@ -28,7 +35,7 @@ const thirdDish = {
 };
 
 
-//const selectedDish = document.querySelector(".selected__dish__image");
+
 
 //array index
 let contentSelector = 0;
@@ -38,6 +45,13 @@ let isOrange = true;
 
 //define variables for spinning
 let spin = 0.0;
+
+
+/*
+
+START OF FUNCTIONS
+
+*/
 
 //button right On click
 const turnRight = document.querySelector(".arrow__right");
