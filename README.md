@@ -6,7 +6,8 @@
 
 ### Description and technologies
 
-Based on the [video](https://www.youtube.com/watch?v=0XJqJJQ35oc), i wanted to to recrerate the project! I Just downloaded the Figma file created by the user and start coding it, using just *HTML5*, *CSS3* and *JavaScript*!
+Based on the [video](https://www.youtube.com/watch?v=0XJqJJQ35oc), i wanted to to recrerate the project!
+I Just downloaded the Figma file created by the user and start coding it, using just *HTML5*, *CSS3* and *JavaScript*!
 
 ### How i made it:
 
