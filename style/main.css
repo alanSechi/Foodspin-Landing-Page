@@ -1,7 +1,6 @@
 @import "body.css";
-@import "utils.css";
+@import "green.css";
 @import "fonts.css";
 @import "navbar.css";
 @import "spinner.css";
-
-/* @import "style.css"; */
+@import "style.css";

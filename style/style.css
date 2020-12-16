@@ -1,0 +1,29 @@
+.content {
+    font-family: "Poppins";
+    font-style: normal;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 6.25rem;
+    height: 41.75rem;
+    width: 80rem;
+    position: relative;
+}
+
+.dish__description {
+    font-family: "Poppins";
+    font-style: normal;
+    position: absolute;
+    width: 22.9375rem;
+    height: 14.875rem;
+    text-align: left;
+    top: 11.625rem;
+}
+
+a.video {
+    font-family: "Poppins";
+    font-style: normal;
+    position: relative;
+    top: 0rem;
+    left: -29.5rem;
+}

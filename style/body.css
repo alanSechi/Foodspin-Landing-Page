@@ -7,34 +7,45 @@
 }
 
 html {
+    height: 70%;
     font-size: 16px;
+    display: table;
+    margin: auto;
 }
 
 body {
+    height: 70%;
     width: 80rem;
     height: 49.4375rem;
-    overflow: hidden;
+    overflow-x: hidden;
     font-family: "Poppins";
     font-style: normal;
     color: #333333;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 nav {
+    font-family: "Poppins";
+    font-style: normal;
     width: 80rem;
     height: 6.25rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 100px;
+    padding: 0rem 6.25rem;
 }
 
 
 /* h2 for the price */
 
 h2 {
+    font-family: "Poppins";
+    font-style: normal;
     font-weight: 600;
-    font-size: 44px;
-    line-height: 66px;
+    font-size: 2.75rem;
+    line-height: 4.125rem;
     color: #ff922c;
 }
 
@@ -42,34 +53,41 @@ h2 {
 /* h3 for the dish name */
 
 h3 {
+    font-family: "Poppins";
+    font-style: normal;
     font-weight: 500;
-    font-size: 36px;
-    line-height: 50px;
+    font-size: 2.25rem;
+    line-height: 3.125rem
 }
 
 
 /* p for the dish description */
 
 p {
+    font-family: "Poppins";
+    font-style: normal;
     font-weight: 400;
-    font-size: 13px;
-    line-height: 19px;
-    margin-top: 12px;
-    text-transform: capitalize;
+    font-size: 0.8125rem;
+    line-height: 1.1875rem;
+    margin-top: 0.75rem;
 }
 
 a {
+    font-family: "Poppins";
+    font-style: normal;
     text-decoration: none;
     color: #333333;
     transition: all 0.5s ease-in-out;
 }
 
 a:hover {
+    font-family: "Poppins";
+    font-style: normal;
     color: #ff922c;
 }
 
 button {
-    width: 163px;
+    width: 10.1875rem;
     height: 48px;
     margin-top: 28px;
     border-radius: 69px;

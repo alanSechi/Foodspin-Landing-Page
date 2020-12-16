@@ -1,6 +1,5 @@
 /* Navbar elements */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 .navbar-logo {
     align-self: center;
     display: flex;
@@ -19,7 +18,7 @@
 }
 
 .navbar-links {
-    align-self: center;
+    align-self: stretch center;
     list-style-type: none;
     display: flex;
     justify-content: center;
